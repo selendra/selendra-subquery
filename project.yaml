@@ -2,9 +2,8 @@ specVersion: 0.2.0
 name: selendra-subsql
 version: 0.0.4
 description: >-
-  This project can be use as a starting point for developing your SubQuery
-  project
-repository: 'https://github.com/selendra/selendra-chain'
+  This project Selendra SubQuery use to query Selendra data
+repository: 'https://github.com/selendra/selendra-subquery'
 schema:
   file: ./schema.graphql
 network:
