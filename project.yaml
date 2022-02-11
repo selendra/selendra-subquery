@@ -1,0 +1,27 @@
+specVersion: 0.2.0
+name: selendra-subsql
+version: 0.0.4
+description: >-
+  This project can be use as a starting point for developing your SubQuery
+  project
+repository: 'https://github.com/selendra/selendra-chain'
+schema:
+  file: ./schema.graphql
+network:
+  endpoint: 'wss://rpc-mainnet.selendra.org'
+  genesisHash: '0x8dbbe8a37d4c62d14835ba0f7e3baf70cf4b93a3e98c53d69544a7b9ea42d0df'
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
